@@ -1,0 +1,1 @@
+Generator liczb losowych. Reszta TBA.
