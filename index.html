@@ -11,12 +11,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!--Additional styles-->
-    <link href="/styles.css"> 
+    <link rel="stylesheet" href="/styles.css"> 
 </head>
-<body class="grey lighten-3"> 
+<body class="grey lighten-2"> 
     <div class="container">
-        
+
+        <!--Header with title-->
+        <header>
+            <h2 class="center-align cyan-text text-darken-2">Random number generator</h2>
+        </header>
+
+        <!--Buttons section-->
+        <section>
+            <div class="row">
+                <div class="col s2 offset-m3 offset-s2">
+                    <a class="waves-effect waves-light btn modal-trigger cyan darken-2" href="#options">Options</a>
+                </div>
+                <div class="col s2 offset-s2">
+                    <button class="btn waves-effect waves-light cyan darken-2" type="submit" name="generate">Generate</button>
+                </div>
+            </div>
+        </section>
+
+        <!--Area with generated numbers section-->
+        <section>
+            <div class="hidden" id="numberWrapper">
+                <p class="flow-text white z-depth-3" id="generatedNumbers"></p>
+            </div>
+        </section>
+
+        <!--Modal with options section-->
+        <section>
+            <div id="options" class="modal">
+                <div class="modal-content">
+                    
+                </div>
+            </div>
+        </section>
     </div>
+
     <!-- Compiled and minified materialize JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
