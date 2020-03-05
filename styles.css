@@ -22,6 +22,14 @@ header{
     padding: 10px;    
 }
 
+.hidden{
+    display: none;
+}
+
+#decimalCheckboxLabel{
+    padding-top: 25px;
+}
+
 @media screen and (max-width: 1200px){
     #numberWrapper{
         max-width: 400px;    
@@ -38,8 +46,9 @@ header{
     #numberWrapper{
         max-width: 200px;    
     }
-}
 
-.hidden{
-    display: none;
+    #decimalCheckboxLabel{
+        padding-top: 0px;
+        padding-bottom: 40px;
+    }
 }
