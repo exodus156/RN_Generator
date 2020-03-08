@@ -63,17 +63,17 @@
                             <div class="row">
                                 <div class="input-field col s12 m4">
                                     <input type="number" id="minimumValueInput" class="validate" step="any" min="0" required>
-                                    <label for="minimumValueInput">Minimum value</label>
+                                    <label for="minimumValueInput">Minimum value*</label>
                                     <span class="helper-text" data-error="Only numbers allowed, that are higher than 0" data-success="Value correct"></span>
                                 </div>
                                 <div class="input-field col s12 m4">
                                     <input type="number" id="maximumValueInput" class="validate" step="any" min="0" required>
-                                    <label for="maximumValueInput">Maximum value</label>
+                                    <label for="maximumValueInput">Maximum value*</label>
                                     <span class="helper-text" data-error="Only numbers allowed, that are higher than 0" data-success="Value correct"></span>
                                 </div>
                                 <div class="input-field col s12 m4">
                                     <input type="number" id="numberAmountInput" class="validate" step="1" min="0" required>
-                                    <label for="numberAmountInput">Amount of numbers</label>
+                                    <label for="numberAmountInput">Amount of numbers*</label>
                                     <span class="helper-text" data-error="Only numbers allowed, higher than 0 and with no decimal value" data-success="Value correct"></span>
                                 </div>
                             </div>
@@ -84,21 +84,21 @@
                                 </label>
                                 <div class="input-field col s12 m6 hidden" id="decimalValueInputWrapper">
                                     <input type="number" id="decimalValueInput" class="validate" step="1" min="1" max="15">
-                                    <label for="decimalValueInput">Numbers of digits after the decimal</label>
+                                    <label for="decimalValueInput">Numbers of digits after the decimal*</label>
                                     <span class="helper-text" data-error="Only numbers allowed, that are higher than 0 and lower than 16" data-success="Value correct"></span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input type="text" id="customStringInput">
-                                    <label for="customStringInput">Put custom values here (optional).</label>
+                                    <label for="customStringInput">Put custom text here (optional).</label>
                                 </div>
                             </div>                            
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-light btn cyan darken-2">Save</a>
+                    <a href="#!" class="waves-effect waves-light btn cyan darken-2" id="saveOptionsButton">Save</a>
                 </div>
             </div>
         </section>
@@ -106,6 +106,9 @@
 
     <!-- Compiled and minified materialize JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--Chance.js library-->
+    <script src="https://chancejs.com/chance.min.js"></script>
 
     <!--Main script-->
     <script src="/scripts/index.js"></script>
