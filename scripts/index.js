@@ -1,5 +1,4 @@
 /* Selectors */
-const optionsForm = document.getElementById("generatorOptionsForm"); //Form for generated numbers
 const minimumValue = document.getElementById("minimumValueInput"); //Minimum generated number value
 const maximumValue = document.getElementById("maximumValueInput"); //Maximum generated number value
 const numberAmount = document.getElementById("numberAmountInput"); //Amount of generated numbers
@@ -7,10 +6,16 @@ const decimalCheck = document.getElementById("decimalCheckbox"); //Checks if dec
 const decimalValue = document.getElementById("decimalValueInput"); //Amount of numbers after decimal
 const customString = document.getElementById("customStringInput"); //Custom user string for more randomness
 const generatedNumbers = document.getElementById("generatedNumbers"); //<p> tag with generated numbers
+const numberWrapper = document.getElementById("numberWrapper");
 const saveOptions = document.getElementById("saveOptionsButton"); //Targets Save button in modal
+const generateButton = document.getElementById("Generate"); //Targets generate button
 
-/* Initialize Chance.js */
-const chance = new Chance();
+/* Initial values of form fields */
+let min = null; //minimum Value
+let max = null; //Maximum value
+let numOf = null; //Number of generated numbers
+let dec = 0; //Amount of numbers after decimal mark
+let cust = null; //Custom string
 
 /* Validation for save button */
 saveOptions.addEventListener('click', () => {  
@@ -36,16 +41,50 @@ saveOptions.addEventListener('click', () => {
     alert("Minimum value cannot be higher or the same as maximum value!")
 
   } else {
+    /* Updating values */
+    min = parseInt(minimumValue.value);
+    max = parseInt(maximumValue.value);
+    numOf = parseInt(numberAmount.value);
+    dec = 0;
+    cust = 0;
+    if(decimalValue.value !== ""){
+      dec = parseInt(decimalValue.value);
+    }
+    if(customString.value !== ""){
+      cust = "" + customString.value;
+    }
 
+    generateButton.classList.remove("disabled"); //Unlocks generate button
+
+    /* Targets and closes modal */
     const instance = M.Modal.getInstance(document.getElementById("options"));
-    instance.close();
-
+    instance.close();    
   }
 });
 
-/* Form submit event listener */
-optionsForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+/* Generate button event listener */
+generateButton.addEventListener('click', () => {
+  if(min !== null||max !== null|| numOf !== null){
+    /* New seed generator */
+    let seed = "" + cust + uuidv4();
+
+    /* Initialize Chance.js */
+    const chance = new Chance(seed);
+
+    /* Activate and clear generated numbers area */
+    if(numberWrapper.classList.contains("hidden")){
+      numberWrapper.classList.remove("hidden");
+    }
+    generatedNumbers.innerText = null;
+
+    /* Loop for generating numbers */
+    for(i=0; i < numOf; i++){
+      let insertValue = chance.floating({min: min, max: max, fixed: dec});
+      generatedNumbers.textContent += `(${insertValue}) `;
+    }
+  } else{
+    alert("Please define options before generating numbers.")
+  }  
 })
 
 /* Materialize JS init */

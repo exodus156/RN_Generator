@@ -40,7 +40,7 @@
                     <a class="waves-effect waves-light btn modal-trigger cyan darken-2" href="#options">Options</a>
                 </div>
                 <div class="col s2 offset-s2">
-                    <button class="btn waves-effect waves-light cyan darken-2" type="submit" name="generate" form="generatorOptionsForm">Generate</button>
+                    <button class="btn waves-effect waves-light cyan darken-2 disabled" id="Generate"name="generate">Generate</button>
                 </div>
             </div>
         </section>
@@ -59,7 +59,7 @@
                     <h4 class="center-align cyan-text text-darken-2">Options</h4>
                     <div class="divider"></div>
                     <div class="row">
-                        <form class="col s12" id="generatorOptionsForm">
+                        <form class="col s12">
                             <div class="row">
                                 <div class="input-field col s12 m4">
                                     <input type="number" id="minimumValueInput" class="validate" step="any" min="0" required>
@@ -67,9 +67,9 @@
                                     <span class="helper-text" data-error="Only numbers allowed, that are higher than 0" data-success="Value correct"></span>
                                 </div>
                                 <div class="input-field col s12 m4">
-                                    <input type="number" id="maximumValueInput" class="validate" step="any" min="0" required>
+                                    <input type="number" id="maximumValueInput" class="validate" step="any" min="0" max="1000000" required>
                                     <label for="maximumValueInput">Maximum value*</label>
-                                    <span class="helper-text" data-error="Only numbers allowed, that are higher than 0" data-success="Value correct"></span>
+                                    <span class="helper-text" data-error="Only numbers allowed, that are higher than 0 and lower than 1000000" data-success="Value correct"></span>
                                 </div>
                                 <div class="input-field col s12 m4">
                                     <input type="number" id="numberAmountInput" class="validate" step="1" min="0" required>
@@ -83,9 +83,9 @@
                                     <span>Generate numbers with decimal values?</span>
                                 </label>
                                 <div class="input-field col s12 m6 hidden" id="decimalValueInputWrapper">
-                                    <input type="number" id="decimalValueInput" class="validate" step="1" min="1" max="15">
+                                    <input type="number" id="decimalValueInput" class="validate" step="1" min="1" max="10">
                                     <label for="decimalValueInput">Numbers of digits after the decimal*</label>
-                                    <span class="helper-text" data-error="Only numbers allowed, that are higher than 0 and lower than 16" data-success="Value correct"></span>
+                                    <span class="helper-text" data-error="Only numbers allowed, that are higher than 0 and lower than 11" data-success="Value correct"></span>
                                 </div>
                             </div>
                             <div class="row">
@@ -110,6 +110,8 @@
     <!--Chance.js library-->
     <script src="https://chancejs.com/chance.min.js"></script>
 
+    <!--UUID-->
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
     <!--Main script-->
     <script src="/scripts/index.js"></script>
 </body>
